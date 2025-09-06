@@ -5,11 +5,11 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
-// --- CORRECTED LOGO IMPORTS ---
-import logoStandard from "@/assets/logo1.png";     // Standard logo for light backgrounds
-import logoHero from "@/assets/logo.png";   // Light logo for the dark hero background
+// --- LOGO IMPORTS ---
+import logoStandard from "@/assets/logo1.png";
+import logoHero from "@/assets/logo.png";
 
-// --- Definitive Navigation Links ---
+// --- Navigation Links ---
 const navLinks = [
   { name: "Our Story", href: "/story" },
   { name: "Impact", href: "/#impact" },
@@ -19,7 +19,6 @@ const navLinks = [
   { name: "Support Us", href: "/support" },
 ];
 
-// --- Animation Variants for Mobile Menu ---
 const mobileMenuVariants: Variants = {
   hidden: { opacity: 0, y: -20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
@@ -36,7 +35,6 @@ const mobileLinkVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { ease: "easeOut" } },
 };
 
-// --- Main Header Component ---
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,7 +42,6 @@ const Header = () => {
   const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
 
-  // This effect handles scrolling to anchors after navigating back to the homepage
   useEffect(() => {
     if (location.hash) {
       const id = location.hash.substring(1);
@@ -54,7 +51,6 @@ const Header = () => {
     }
   }, [location]);
 
-  // Effect to handle the header's scrolled state
   useEffect(() => {
     const handleScroll = () => { setScrolled(window.scrollY > 50) };
     window.addEventListener("scroll", handleScroll);
@@ -64,7 +60,6 @@ const Header = () => {
   const isSolid = !isHomePage || scrolled;
   const currentLogo = isSolid ? logoStandard : logoHero;
 
-  // --- THE DEFINITIVE NAVIGATION HANDLER ---
   const handleNavigate = (e: React.MouseEvent, href: string) => {
     e.preventDefault();
     if (mobileMenuOpen) setMobileMenuOpen(false);
@@ -81,13 +76,12 @@ const Header = () => {
     }
   };
 
-  // --- THE DEFINITIVE LOGO CLICK HANDLER ---
   const handleLogoClick = (e: React.MouseEvent) => {
     if (isHomePage) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    // On other pages, the default Link behavior will navigate home.
+    // On other pages, the default Link behavior will navigate home (and be caught by the hook).
   };
 
   return (
@@ -138,7 +132,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-
+      
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div

@@ -1,12 +1,19 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-// This custom hook ensures that the window scrolls to the top on every page change.
 const useScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // This timeout gives the browser a brief moment to render the new page
+    // before attempting to scroll. This is crucial for pages with heavy content
+    // like images, preventing the scroll from happening before the content is in place.
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+
+    // Cleanup the timer if the component unmounts before the timeout finishes
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   return null;

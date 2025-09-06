@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, Twitter } from "lucide-react";
 import logo from "@/assets/logohead.png";
-import { Link } from "react-router-dom"; // Import the Link component
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -70,17 +70,15 @@ const Footer = () => {
           <div className="space-y-6">
             <h5 className="text-lg font-heading font-bold text-foreground">Quick Links</h5>
             <ul className="space-y-3">
-              {/* CORRECTED LINKS */}
               <li><Link to="/story" className="text-muted-foreground hover:text-primary transition-colors text-sm">Our Story</Link></li>
               <li><Link to="/programs" className="text-muted-foreground hover:text-primary transition-colors text-sm">Programs</Link></li>
               <li><Link to="/team" className="text-muted-foreground hover:text-primary transition-colors text-sm">Our Team</Link></li>
-              <li><Link to="/#contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">Contact Us</Link></li>
+              <li><a href="/#contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">Contact Us</a></li>
             </ul>
           </div>
           <div className="space-y-6">
             <h5 className="text-lg font-heading font-bold text-foreground">Resources</h5>
             <ul className="space-y-3">
-              {/* CORRECTED LINKS */}
               <li><Link to="/gallery" className="text-muted-foreground hover:text-primary transition-colors text-sm">Gallery</Link></li>
               <li><Link to="/support" className="text-muted-foreground hover:text-primary transition-colors text-sm">Support Us</Link></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">FAQ</a></li>
