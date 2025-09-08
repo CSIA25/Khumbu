@@ -2,7 +2,7 @@ import { motion, Variants } from "framer-motion";
 import { Button } from "./ui/button";
 import { ArrowRight, Quote } from "lucide-react";
 import conradAnkerPortrait from "@/assets/conrad-anker.jpg";
-import conradAnkerAction from "@/assets/conrad-anker-action.jpg";
+import conradAnkerAction from "@/assets/ca.jpg";
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -78,7 +78,7 @@ const OurTeam = () => {
                       "Climbers who not only know what they are doing, but enjoy doing it, are more engaged—and that makes them safer in the mountains."
                     </blockquote>
                     <footer className="mt-4 text-right">
-                        <p className="font-bold text-foreground">Conrad Anker</p>
+                        <p className="font-bold text-foreground">- Conrad Anker</p>
                         <p className="text-sm text-muted-foreground">National Geographic, 2012</p>
                     </footer>
                 </div>
